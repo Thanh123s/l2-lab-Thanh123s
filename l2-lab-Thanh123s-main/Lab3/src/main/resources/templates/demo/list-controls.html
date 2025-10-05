@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách điều khiển</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        h2, h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        select, label {
+            display: block;
+            margin: 10px 0;
+        }
+        select {
+            padding: 8px;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        label {
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        label:hover {
+            background-color: #f0f0f0;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 16px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #333;
+        }
+        .back-link:hover {
+            background-color: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <h2>Ví dụ về điều khiển danh sách</h2>
+    
+    <div class="section">
+        <h3>1. Điền vào SelectBox</h3>
+        <select name="cbo" class="form-control">
+            <option value="">-- Chọn nhân viên --</option>
+            <th:block th:each="staff : ${list}">
+                <option th:value="${staff.id}" th:text="${#strings.capitalizeWords(staff.fullname)} + ' (Level: ' + ${staff.level} + ')'"></option>
+            </th:block>
+        </select>
+    </div>
+
+    <div class="section">
+        <h3>2. Tạo nhóm Radio Button</h3>
+        <p>Chọn nhân viên:</p>
+        <div class="radio-group">
+            <th:block th:each="staff : ${list}">
+                <label>
+                    <input type="radio" name="rdo" th:value="${staff.id}">
+                    <span th:text="${#strings.capitalizeWords(staff.fullname)} + ' (' + ${staff.id} + ')'"></span>
+                </label>
+            </th:block>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>3. Danh sách Checkbox</h3>
+        <p>Chọn nhiều nhân viên:</p>
+        <div class="checkbox-group">
+            <th:block th:each="staff : ${list}">
+                <label>
+                    <input type="checkbox" th:name="'staff_' + ${staff.id}" th:value="${staff.id}">
+                    <span th:text="${#strings.capitalizeWords(staff.fullname)}"></span>
+                    <small th:text="' (Level: ' + ${staff.level} + ')'" style="color: #666;"></small>
+                </label>
+            </th:block>
+        </div>
+    </div>
+
+    <a href="/staff/list" class="back-link">← Quay lại danh sách</a>
+</body>
+</html>

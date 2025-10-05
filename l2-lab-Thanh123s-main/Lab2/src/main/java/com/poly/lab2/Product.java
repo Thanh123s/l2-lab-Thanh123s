@@ -1,4 +1,4 @@
-package com.example.lab2;
+package com.poly.lab2;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

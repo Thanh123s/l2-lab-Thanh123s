@@ -1,4 +1,4 @@
-package com.example.lab2;
+package com.poly.lab2;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

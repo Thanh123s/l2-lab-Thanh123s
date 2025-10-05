@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách nhân viên</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <h2>Danh sách nhân viên</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">HỌ VÀ TÊN</th>
+                <th colspan="6">CÁC THUỘC TÍNH TRẠNG THÁI</th>
+            </tr>
+            <tr>
+                <th>Index</th>
+                <th>Count</th>
+                <th>First</th>
+                <th>Last</th>
+                <th>Odd</th>
+                <th>Even</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="staff, st : ${list}" 
+                th:style="'background-color:' + (${st.odd} ? 'pink' : 'cyan')">
+                <!-- Họ và tên -->
+                <td th:text="${#strings.capitalizeWords(staff.fullname)}"></td>
+
+                <!-- Các trạng thái -->
+                <td th:text="${st.index}"></td>
+                <td th:text="${st.count}"></td>
+                <td th:text="${st.first}"></td>
+                <td th:text="${st.last}"></td>
+                <td th:text="${st.odd}"></td>
+                <td th:text="${st.even}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

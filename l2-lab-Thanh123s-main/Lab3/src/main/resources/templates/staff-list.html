@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách nhân viên</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .staff-item {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .staff-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #ddd;
+        }
+        .staff-info {
+            flex-grow: 1;
+        }
+        hr {
+            margin: 15px 0;
+            border: 0;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <h2>Danh sách nhân viên</h2>
+    
+    <div th:each="staff, st : ${list}" class="staff-item">
+        <img th:src="@{'/photos/' + ${staff.photo}}" alt="Avatar" class="staff-avatar" th:onerror="this.src='552961459_1161287582587654_7090081207822496985_n.png'">
+        <div class="staff-info">
+            <span th:text="${st.count} + '. ' + ${#strings.capitalizeWords(staff.fullname)}"></span>
+            <span>, $<span th:text="${#numbers.formatDecimal(staff.salary, 0, 'COMMA', 2, 'POINT')}"></span></span>
+        </div>
+        <th:block th:if="!${st.last}">
+            <hr style="position: absolute; left: 0; right: 0; margin-top: 40px;">
+        </th:block>
+    </div>
+</body>
+</html>

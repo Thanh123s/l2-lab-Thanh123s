@@ -9,6 +9,16 @@
             "projectName": "Lab1",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Lab2Application<Lab2>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.poly.lab2.Lab2Application",
+            "projectName": "Lab2",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
