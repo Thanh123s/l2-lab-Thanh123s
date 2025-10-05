@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; }
+    form { border: 1px solid #ccc; padding: 1rem; border-radius: 8px; }
+    input, button { padding: .5rem .75rem; margin-right: .5rem; }
+    ul { margin-top: 1rem; }
+    label { display: inline-block; width: 70px; }
+    .row { margin: .35rem 0; }
+  </style>
+</head>
+<body>
+  <form action="/product/save" method="post">
+    <input name="name" th:value="${p.name}">
+    <input name="price" th:value="${p.price}">
+    <button>Save</button>
+  </form>
+  
+  <ul>
+    <li th:text="${p.name}">?1name</li>
+    <li th:text="${p.price}">?1price</li>
+  </ul>
+  
+  <ul>
+    <li th:if="${p2}" th:text="${p2.name}">?2name</li>
+    <li th:if="${p2}" th:text="${p2.price}">?2price</li>
+  </ul>
+
+  <ul>
+    <th:block th:each="item : ${items}">
+      <li th:text="${item.name}">item.name</li>
+      <li th:text="${item.price}">item.price</li>
+    </th:block>
+  </ul>
+
+  <p>
+    <a href="/product/form">Mở lại form</a>
+  </p>
+</body>
+</html>
+
