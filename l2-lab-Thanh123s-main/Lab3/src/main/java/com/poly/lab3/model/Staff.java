@@ -1,4 +1,4 @@
-package com.example.lab3.model;
+package com.poly.lab3.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

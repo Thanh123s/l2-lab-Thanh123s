@@ -1,6 +1,6 @@
-package com.example.lab3.controller;
+package com.poly.lab3.controller;
 
-import com.example.lab3.model.Staff;
+import com.poly.lab3.model.Staff;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

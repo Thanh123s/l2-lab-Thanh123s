@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html th:replace="~{shared/layout :: view(~{::title}, ~{::article})}">
+<head>
+    <title th:text="#{menu.about}">About</title>
+</head>
+<body>
+    <article>
+        <h1 th:text="#{menu.about}">About</h1>
+        <ul class="list-unstyled">
+            <li><h3>FPT Polytechnic</h3></li>
+            <li><h3 th:text="#{about.slogan}">Thực học - Thực nghiệp</h3></li>
+        </ul>
+    </article>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" th:fragment="menu">
+    <div class="container">
+        <div class="navbar-nav">
+            <a class="nav-link" href="/home/index" th:text="#{menu.home}">Home</a>
+            <a class="nav-link" href="/home/about" th:text="#{menu.about}">About</a>
+        </div>
+        <div class="text-white">
+            <a class="text-decoration-none text-white me-2" href="?lang=vi">Tiếng Việt</a> |
+            <a class="text-decoration-none text-white ms-2" href="?lang=en">English</a>
+        </div>
+    </div>
+</nav>
